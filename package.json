@@ -1,12 +1,28 @@
 {
   "name": "matrixts",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "description": "A Library for work with matrices",
-  "main": "index.js",
+  "main": "./lib/matrix.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./tests/index.js"
   },
-  "keywords": ["matrix", "matrices", "determinants"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AntonOnyshch/matrixts.git"
+  },
+  "keywords": [
+    "matrix",
+    "matrices",
+    "determinants"
+  ],
   "author": "Anton Onyshchenko",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AntonOnyshch/matrixts/issues"
+  },
+  "homepage": "https://github.com/AntonOnyshch/matrixts/blob/main/README.md",
+  "devDependencies": {
+    "betest": "^1.2.9"
+  }
 }
