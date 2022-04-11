@@ -19,7 +19,8 @@ It's just a class with static methods wich cover almost all operation over matri
     - Built in; multiplication 3x1, 2x2, 3x3
     - Multiplications of any dimension
 - Addition
-
+- Subtraction
+- Power
 
 Suppose we have some arbitrary matrices:
 ```
@@ -43,14 +44,19 @@ export const m3x3_2 = [
     [4, 3, 9]
 ]
 ```
+<details>
+    <summary>Equality</summary>
 
-1. **Equality**
-```
-return Matrix.equal(m3x3_1, m3x3_1);
-// Result: true
-```
+    ```
+    return Matrix.equal(m3x3_1, m3x3_1);
+    // Result: true
+    ```
+</details>
 
-2. **Unit matrices**
+
+<details>
+    <summary>Unit matrices</summary>
+
     - Unit 2x2
     ```
     Matrix.getUnit2x2();
@@ -81,8 +87,12 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [0, 0, 0, 1]
     ] -->
     ```
+</details>
 
-3. **Multiplication**
+
+<details>
+    <summary>Multiplication</summary>
+
     - To number
     ```
     Matrix.mulToN(m3x3_1, 2);
@@ -128,29 +138,40 @@ return Matrix.equal(m3x3_1, m3x3_1);
     // Result:
     [[65, 12, 22]]
     ```
+</details>
 
-4. **Addition**
-```
+
+<details>
+    <summary>Addition</summary>
+
+    ```
     Matrix.add(m2x2_1, m2x2_2);
     // Result:
     <!-- [
         [5, 2],
         [2, 0]
     ] -->
-```
+    ```
+</details>
 
-5. **Subtraction**
-```
+
+<details>
+    <summary>Subtraction</summary>
+
+    ```
     Matrix.sub(m2x2_1, m2x2_2);
     // Result:
     <!-- [
         [3, 12],
         [-2, -8]
     ] -->
-```
+    ```
+</details>
 
-6. **Power**
-```
+<details>
+    <summary>Power</summary>
+
+    ```
     Matrix.power(m2x2_1, 2)
     // Result
     <!-- [
@@ -158,3 +179,4 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [0, 16]
     ] -->
 ```
+</details>
