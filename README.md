@@ -202,13 +202,19 @@ export const m3x3_2 = [
 <details>
     <summary>Determinants</summary>
 
+    - Determinant 2x2
+
     ```typescript
-    Matrix.determ(m2x2_1)
+    Matrix.determ2x2(m2x2_1)
     // Result: -16
     ```
 
+    - Determinant 3x3
+
     ```typescript
-    Matrix.determ(m3x3_1)
+
+    Matrix.determ3x3(m3x3_1)
+    
     // Result: 67
     ```
 
