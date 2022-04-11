@@ -44,14 +44,14 @@ export const m3x3_2 = [
 ]
 ```
 
-1. Equality
+1. **Equality**
 ```
 return Matrix.equal(m3x3_1, m3x3_1);
 // Result: true
 ```
 
-2. Unit matrices
-    1. Unit 2x2
+2. **Unit matrices**
+    - Unit 2x2
     ```
     Matrix.getUnitMatrix2x2();
     // Result:
@@ -60,7 +60,7 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [0, 1]
     ] -->
     ```
-    2. Unit 3x3
+    - Unit 3x3
     ```
     Matrix.getUnitMatrix3x3();
     // Result:
@@ -70,7 +70,7 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [0, 0, 1]
     ] -->
     ```
-    3. Arbitrary unit matrix
+    - Arbitrary unit matrix
     ```
     Matrix.getUnitMatrix(4);
     // Result:
@@ -81,8 +81,8 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [0, 0, 0, 1]
     ] -->
     ```
-3. Multiplication
-    1. To number
+3. **Multiplication**
+    - To number
     ```
     Matrix.multiplyToN(m3x3_1, 2);
     // Result:
@@ -92,7 +92,7 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [18, -6, 10]
     ] -->
     ```
-    2. Multiply
+    - Multiply
     ```
     Matrix.multiply(m3x3_1, m3x3_2);
     // Result:
@@ -102,7 +102,7 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [18, 3, 45]
     ] -->
     ```
-    3. Multiply 2x2
+    - Multiply 2x2
     ```
     Matrix.multiply2x2(m2x2_1, m2x2_2);
     // Result:
@@ -111,7 +111,7 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [-0, -16]
     ] -->
     ```
-    4. Multiply 3x3
+    - Multiply 3x3
     ```
     Matrix.multiply3x3(m3x3_1, m3x3_2);
     // Result:
@@ -121,13 +121,13 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [18, 3, 45]
     ] -->
     ```
-    5. Multiply 3x3 to vector
+    - Multiply 3x3 to vector
     ```
     Matrix.multiply3x1(m3x3_1, v);
     // Result:
     [[65, 12, 22]]
     ```
-4. Addition
+4. **Addition**
 ```
     Matrix.add(m2x2_1, m2x2_2);
     // Result:
