@@ -1,5 +1,25 @@
 export default class Matrix {
 
+    public static equal(m1: [][], m2: [][]): Boolean {
+
+        if(m1.length !== m2.length) {
+            return false;
+        }
+
+        for (let i = 0; i < m1.length; i++) {
+            if(m1[i].length !== m2[i].length) {
+                return false;
+            }
+            for (let j = 0; j < m1[i].length; j++) {
+                if(m1[i][j] !== m2[i][j]) {
+                    return false
+                }
+            }
+        }
+
+        return true;
+    }
+
     //#region Unit Matrix
 
     public static getUnitMatrix(n: number = 3): Float32Array[] {
@@ -27,6 +47,18 @@ export default class Matrix {
 
 
     //#region Multiplication
+
+    public static multiplyToN(m1: [][], n: number): Float32Array[] {
+        const m_plied = new Array(m1.length);
+
+        for (let i = 0; i < m1.length; i++) {
+            m_plied[i] = new Float32Array(m1[i].length);
+            for (let j = 0; j < m1[i].length; j++) {
+                m_plied[i][j] = m1[i][j] * n;
+            }
+        }
+        return m_plied;
+    }
 
     public static multiply(m1: [][], m2: [][]): Float32Array[] {
         const m_plied = new Array(m1.length);
@@ -78,6 +110,22 @@ export default class Matrix {
             m1[2][2] * m2[2][2]
         ]);
 
+        return m_plied;
+    }
+
+    //#endregion
+
+    //#region Addition
+
+    public static add(m1: [][], m2: [][]): Float32Array[] {
+        const m_plied = new Array(m1.length);
+
+        for (let i = 0; i < m1.length; i++) {
+            m_plied[i] = new Array(m1[i].length);
+            for (let j = 0; j < m1[i].length; j++) {
+                m_plied[i][j] = m1[i][j] + m2[i][j];
+            }
+        }
         return m_plied;
     }
 

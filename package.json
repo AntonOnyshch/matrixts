@@ -1,5 +1,5 @@
 {
-  "name": "matrixts",
+  "name": "@antononyshch/matrixts",
   "version": "1.0.0-beta.1",
   "description": "A Library for work with matrices",
   "main": "./lib/matrix.js",
@@ -14,7 +14,11 @@
   "keywords": [
     "matrix",
     "matrices",
-    "determinants"
+    "determinants",
+    "array",
+    "mulpiplication",
+    "vector",
+    "unit"
   ],
   "author": "Anton Onyshchenko",
   "license": "MIT",
