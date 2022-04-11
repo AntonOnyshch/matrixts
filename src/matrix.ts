@@ -154,5 +154,22 @@ export default class Matrix {
 
     //#endregion
 
+    //#region Transposition
 
+    public static trans(m1: Float32Array[]): Float32Array[] {
+        const m_trans = new Array(m1[0].length);
+
+        for (let i = 0; i < m_trans.length; i++) {
+            m_trans[i] = new Float32Array(m1.length);
+            for (let j = 0; j < m_trans[i].length; j++) {
+                m_trans[i][j] = m1[j][i];
+            }
+        }
+
+        return m_trans;
+    }
+
+    //#endregion
+
+    
 }

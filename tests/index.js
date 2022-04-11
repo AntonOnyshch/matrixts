@@ -1,6 +1,6 @@
 import { Betest } from 'betest';
 import Matrix from '../lib/matrix.js';
-import { m2x2_1, m2x2_2, m3x3_1, m3x3_2, v } from './matrices.js';
+import { m2x2_1, m2x2_2, m3x3_1, m3x3_2, m3x2_1, v } from './matrices.js';
 
 const betest = new Betest();
 
@@ -177,5 +177,23 @@ betest.addGroup({
 
 //#endregion
 
-betest.runGroup("Power");
+//#region Transposition
+
+const trans = function() {
+    const rightAnswer = [
+        [1, 2],
+        [-5, 4],
+        [2, -1]
+    ]
+    return Matrix.equal(Matrix.trans(m3x2_1), rightAnswer);
+}
+
+betest.addGroup({
+    name: "Transposition",
+    tests: [trans]
+});
+
+//#endregion
+
+betest.runGroup("Transposition");
 //betest.runAll();

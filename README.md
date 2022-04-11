@@ -180,3 +180,17 @@ export const m3x3_2 = [
     ] -->
 ```
 </details>
+
+<details>
+    <summary>Transposition</summary>
+
+    ```
+    Matrix.trans(m3x2_1)
+    // Result
+    <!-- [
+        [1, 2],
+        [-5, 4],
+        [2, -1]
+    ] -->
+```
+</details>
