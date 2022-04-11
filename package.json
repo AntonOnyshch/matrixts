@@ -1,6 +1,6 @@
 {
   "name": "@antononyshch/matrixts",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.1",
   "description": "A Library for work with matrices",
   "main": "./lib/matrix.js",
   "type": "module",
@@ -16,7 +16,7 @@
     "matrices",
     "determinants",
     "array",
-    "mulpiplication",
+    "multiplication",
     "vector",
     "unit"
   ],

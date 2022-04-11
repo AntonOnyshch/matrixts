@@ -19,8 +19,8 @@ betest.addGroup({
 
 //#region Units
 
-const getUnitMatrix2x2 = function() {
-    const unitM = Matrix.getUnitMatrix3x3();
+const getUnit2x2 = function() {
+    const unitM = Matrix.getUnit3x3();
 
     for (let i = 0; i < unitM.length; i++) {
         if(unitM[i].indexOf(1) !== i) {
@@ -31,8 +31,8 @@ const getUnitMatrix2x2 = function() {
     return true;
 }
 
-const getUnitMatrix3x3 = function() {
-    const unitM = Matrix.getUnitMatrix3x3();
+const getUnit3x3 = function() {
+    const unitM = Matrix.getUnit3x3();
 
     for (let i = 0; i < unitM.length; i++) {
         if(unitM[i].indexOf(1) !== i) {
@@ -42,8 +42,8 @@ const getUnitMatrix3x3 = function() {
 
     return true;
 }
-const getUnitMatrix = function() {
-    const unitM = Matrix.getUnitMatrix(4);
+const getUnit = function() {
+    const unitM = Matrix.getUnit(4);
     for (let i = 0; i < unitM.length; i++) {
         if(unitM[i].indexOf(1) !== i) {
             return false;
@@ -55,15 +55,15 @@ const getUnitMatrix = function() {
 
 betest.addGroup({
     name: "Unit Matrix",
-    tests: [getUnitMatrix2x2, getUnitMatrix3x3, getUnitMatrix]
+    tests: [getUnit2x2, getUnit3x3, getUnit]
 });
 
 //#endregion
 
 //#region Multiplication
 
-const multiplyToN = function() {
-    const m_pliedM = Matrix.multiplyToN(m3x3_1, 2);
+const mulToN = function() {
+    const m_pliedM = Matrix.mulToN(m3x3_1, 2);
 
     const rightAnswer = [
         [8, 14, 4],
@@ -73,8 +73,8 @@ const multiplyToN = function() {
     return Matrix.equal(m_pliedM, rightAnswer);
 }
 
-const multiply = function() {
-    const m_pliedM = Matrix.multiply(m3x3_1, m3x3_2);
+const mul = function() {
+    const m_pliedM = Matrix.mul(m3x3_1, m3x3_2);
 
     const rightAnswer = [
         [4, 14, 8],
@@ -85,8 +85,8 @@ const multiply = function() {
     return Matrix.equal(m_pliedM, rightAnswer);
 }
 
-const multiply2x2 = function() {
-    const m_pliedM = Matrix.multiply2x2(m2x2_1, m2x2_2);
+const mul2x2 = function() {
+    const m_pliedM = Matrix.mul2x2(m2x2_1, m2x2_2);
 
     const rightAnswer = [
         [4, 14],
@@ -96,8 +96,8 @@ const multiply2x2 = function() {
     return Matrix.equal(m_pliedM, rightAnswer);
 }
 
-const multiply3x3 = function() {
-    const m_pliedM = Matrix.multiply3x3(m3x3_1, m3x3_2);
+const mul3x3 = function() {
+    const m_pliedM = Matrix.mul3x3(m3x3_1, m3x3_2);
 
     const rightAnswer = [
         [4, 14, 8],
@@ -108,9 +108,9 @@ const multiply3x3 = function() {
     return Matrix.equal(m_pliedM, rightAnswer);
 }
 
-const multiply3x1 = function() {
+const mul3x1 = function() {
 
-    const m_pliedM = Matrix.multiply3x1(m3x3_1, v);
+    const m_pliedM = Matrix.mul3x1(m3x3_1, v);
 
     const rightAnswer = new Float32Array([65, 12, 22]);
 
@@ -119,7 +119,7 @@ const multiply3x1 = function() {
 
 betest.addGroup({
     name: "Multiplication",
-    tests: [multiply2x2, multiply3x3, multiply3x1, multiply, multiplyToN]
+    tests: [mul2x2, mul3x3, mul3x1, mul, mulToN]
 });
 
 //#endregion
@@ -142,5 +142,23 @@ betest.addGroup({
 
 //#endregion
 
-//betest.runGroup("Addition");
-betest.runAll();
+//#region Subtraction
+
+const sub = function() {
+    const subtructed = Matrix.sub(m2x2_1, m2x2_2);
+    const rightAnswer = [
+        [3, 12],
+        [-2, -8]
+    ]
+    return Matrix.equal(subtructed, rightAnswer);
+}
+
+betest.addGroup({
+    name: "Subtraction",
+    tests: [sub]
+});
+
+//#endregion
+
+betest.runGroup("Addition");
+//betest.runAll();

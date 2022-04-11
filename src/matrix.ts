@@ -1,6 +1,6 @@
 export default class Matrix {
 
-    public static equal(m1: [][], m2: [][]): Boolean {
+    public static equal(m1: Float32Array[], m2: Float32Array[]): Boolean {
 
         if(m1.length !== m2.length) {
             return false;
@@ -22,7 +22,7 @@ export default class Matrix {
 
     //#region Unit Matrix
 
-    public static getUnitMatrix(n: number = 3): Float32Array[] {
+    public static getUnit(n: number = 3): Float32Array[] {
         const unitM = new Array<Float32Array>(n);
 
         for (let i = 0; i < unitM.length; i++) {
@@ -32,11 +32,11 @@ export default class Matrix {
         return unitM;
     }
 
-    public static getUnitMatrix2x2(): Float32Array[] {
+    public static getUnit2x2(): Float32Array[] {
         return new Array(new Float32Array([1, 0]), new Float32Array([0, 1]));
     }
 
-    public static getUnitMatrix3x3(): Float32Array[] {
+    public static getUnit3x3(): Float32Array[] {
         return new Array(
             new Float32Array([1, 0, 0]), 
             new Float32Array([0, 1, 0]), 
@@ -45,10 +45,9 @@ export default class Matrix {
 
     //#endregion
 
-
     //#region Multiplication
 
-    public static multiplyToN(m1: [][], n: number): Float32Array[] {
+    public static mulToN(m1: Float32Array[], n: number): Float32Array[] {
         const m_plied = new Array(m1.length);
 
         for (let i = 0; i < m1.length; i++) {
@@ -60,7 +59,7 @@ export default class Matrix {
         return m_plied;
     }
 
-    public static multiply(m1: [][], m2: [][]): Float32Array[] {
+    public static mul(m1: Float32Array[], m2: Float32Array[]): Float32Array[] {
         const m_plied = new Array(m1.length);
 
         for (let i = 0; i < m1.length; i++) {
@@ -72,7 +71,7 @@ export default class Matrix {
         return m_plied;
     }
 
-    public static multiply3x1(m1: [number, number, number][], m2: [number, number, number]): Float32Array {
+    public static mul3x1(m1: Float32Array[], m2: Float32Array): Float32Array {
         const m_plied = new Float32Array([
             m1[0][0] * m2[0] + m1[0][1] * m2[0] + m1[0][2] * m2[0],
             m1[1][0] * m2[1] + m1[1][1] * m2[1] + m1[1][2] * m2[1],
@@ -82,7 +81,7 @@ export default class Matrix {
         return m_plied;
     }
 
-    public static multiply2x2(m1: [number, number][], m2: [number, number][]): Float32Array[] {
+    public static mul2x2(m1: Float32Array[], m2: Float32Array[]): Float32Array[] {
         const m_plied = new Array(m1.length);
         
         m_plied[0] = new Float32Array([m1[0][0] * m2[0][0], m1[0][1] * m2[1][0]]);
@@ -91,7 +90,7 @@ export default class Matrix {
         return m_plied;
     }
 
-    public static multiply3x3(m1: [number, number, number][], m2: [number, number, number][]): Float32Array[] {
+    public static mul3x3(m1: Float32Array[], m2: Float32Array[]): Float32Array[] {
         const m_plied = new Array(m1.length);
 
         m_plied[0] = new Float32Array([
@@ -117,11 +116,11 @@ export default class Matrix {
 
     //#region Addition
 
-    public static add(m1: [][], m2: [][]): Float32Array[] {
+    public static add(m1: Float32Array[], m2: Float32Array[]): Float32Array[] {
         const m_plied = new Array(m1.length);
 
         for (let i = 0; i < m1.length; i++) {
-            m_plied[i] = new Array(m1[i].length);
+            m_plied[i] = new Float32Array(m1[i].length);
             for (let j = 0; j < m1[i].length; j++) {
                 m_plied[i][j] = m1[i][j] + m2[i][j];
             }
@@ -130,4 +129,14 @@ export default class Matrix {
     }
 
     //#endregion
+
+    //#region Subtraction
+
+    public static sub(m1: Float32Array[], m2: Float32Array[]): Float32Array[] {
+        return Matrix.add(m1, Matrix.mulToN(m2, -1));
+    }
+
+    //#endregion
+
+    
 }
