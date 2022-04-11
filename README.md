@@ -195,12 +195,13 @@ export const m3x3_2 = [
         [-5, 4],
         [2, -1]
     ] -->
-```
+    ```
 </details>
 
 
 <details>
     <summary>Determinants</summary>
+
     - Determinant 2x2
     ```
     Matrix.determ(m2x2_1)
