@@ -214,8 +214,8 @@ export const m3x3_2 = [
     ```typescript
 
     Matrix.determ3x3(m3x3_1)
-    
     // Result: 67
+    
     ```
 
 </details>
