@@ -171,5 +171,19 @@ export default class Matrix {
 
     //#endregion
 
-    
+    //#region Determinants
+
+    public static determ2x2(m1: Float32Array[]): number {
+        return m1[0][0] * m1[1][1] - m1[0][1] * m1[1][0];
+    }
+
+    public static determ3x3(m1: Float32Array[]): number {
+        const minor1 = (m1[1][1] * m1[2][2] - m1[1][2] * m1[2][1]);
+        const minor2 = (m1[1][1] * m1[2][2] - m1[1][2] * m1[2][1]);
+        const minor3 = (m1[1][0] * m1[2][1] - m1[1][1] * m1[2][0]);
+
+        return 5;
+    }
+
+    //#endregion 
 }

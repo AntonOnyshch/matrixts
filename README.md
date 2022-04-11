@@ -21,6 +21,7 @@ It's just a class with static methods wich cover almost all operation over matri
 - Addition
 - Subtraction
 - Power
+- Transposition
 
 Suppose we have some arbitrary matrices:
 ```
@@ -168,12 +169,13 @@ export const m3x3_2 = [
     ```
 </details>
 
+
 <details>
     <summary>Power</summary>
 
     ```
     Matrix.power(m2x2_1, 2)
-    // Result
+    // Result:
     <!-- [
         [16, 49],
         [0, 16]
@@ -181,16 +183,32 @@ export const m3x3_2 = [
 ```
 </details>
 
+
 <details>
     <summary>Transposition</summary>
 
     ```
     Matrix.trans(m3x2_1)
-    // Result
+    // Result:
     <!-- [
         [1, 2],
         [-5, 4],
         [2, -1]
     ] -->
 ```
+</details>
+
+
+<details>
+    <summary>Determinants</summary>
+    - Determinant 2x2
+    ```
+    Matrix.determ(m2x2_1)
+    // Result: -16
+    ```
+    - Determinant 3x3
+    ```
+    Matrix.determ(m3x3_1)
+    // Result: 67
+    ```
 </details>

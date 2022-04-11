@@ -195,5 +195,24 @@ betest.addGroup({
 
 //#endregion
 
-betest.runGroup("Transposition");
+//#region Determinants
+
+const determ2x2 = function() {
+    const rightAnswer = -16;
+    return Matrix.equal(Matrix.determ2x2(m2x2_1), rightAnswer);
+}
+
+const determ3x3 = function() {
+    const rightAnswer = -67;
+    return Matrix.equal(Matrix.determ3x3(m3x3_1), rightAnswer);
+}
+
+betest.addGroup({
+    name: "Determinants",
+    tests: [determ2x2, determ3x3]
+});
+
+//#endregion
+
+betest.runTest("Determinants", "determ3x3");
 //betest.runAll();
