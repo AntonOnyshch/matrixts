@@ -138,5 +138,21 @@ export default class Matrix {
 
     //#endregion
 
-    
+    //#region Power
+
+    public static power(m1: Float32Array[], n: number) {
+        const m_powered = new Array(m1.length);
+
+        for (let i = 0; i < m1.length; i++) {
+            m_powered[i] = new Float32Array(m1[i].length);
+            for (let j = 0; j < m1[i].length; j++) {
+                m_powered[i][j] = m1[i][j] ** n;
+            }
+        }
+        return m_powered;
+    }
+
+    //#endregion
+
+
 }

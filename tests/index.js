@@ -160,5 +160,22 @@ betest.addGroup({
 
 //#endregion
 
-betest.runGroup("Addition");
+//#region Power
+
+const power = function() {
+    const rightAnswer = [
+        [16, 49],
+        [0, 16]
+    ]
+    return Matrix.equal(Matrix.power(m2x2_1, 2), rightAnswer);
+}
+
+betest.addGroup({
+    name: "Power",
+    tests: [power]
+});
+
+//#endregion
+
+betest.runGroup("Power");
 //betest.runAll();

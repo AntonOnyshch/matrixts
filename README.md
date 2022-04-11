@@ -81,6 +81,7 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [0, 0, 0, 1]
     ] -->
     ```
+
 3. **Multiplication**
     - To number
     ```
@@ -92,7 +93,7 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [18, -6, 10]
     ] -->
     ```
-    - mul
+    - Multiplication
     ```
     Matrix.mul(m3x3_1, m3x3_2);
     // Result:
@@ -102,7 +103,7 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [18, 3, 45]
     ] -->
     ```
-    - mul 2x2
+    - Multiplication 2x2
     ```
     Matrix.mul2x2(m2x2_1, m2x2_2);
     // Result:
@@ -111,7 +112,7 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [-0, -16]
     ] -->
     ```
-    - mul 3x3
+    - Multiplication 3x3
     ```
     Matrix.mul3x3(m3x3_1, m3x3_2);
     // Result:
@@ -121,12 +122,13 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [18, 3, 45]
     ] -->
     ```
-    - mul 3x3 to vector
+    - Multiplication 3x3 to vector
     ```
     Matrix.mul3x1(m3x3_1, v);
     // Result:
     [[65, 12, 22]]
     ```
+
 4. **Addition**
 ```
     Matrix.add(m2x2_1, m2x2_2);
@@ -136,12 +138,23 @@ return Matrix.equal(m3x3_1, m3x3_1);
         [2, 0]
     ] -->
 ```
-5. Subtraction
+
+5. **Subtraction**
 ```
     Matrix.sub(m2x2_1, m2x2_2);
     // Result:
     <!-- [
         [3, 12],
         [-2, -8]
+    ] -->
+```
+
+6. **Power**
+```
+    Matrix.power(m2x2_1, 2)
+    // Result
+    <!-- [
+        [16, 49],
+        [0, 16]
     ] -->
 ```
