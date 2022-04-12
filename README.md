@@ -4,7 +4,7 @@
 
 **Matrixts** is a small library for matrices written in TypeScript with *zero dependencies!*
 
-It's just a class with static methods wich cover almost all operation over matrices you need to work with.
+It's just a class with static methods which cover almost all operations over matrices you need to work with.
 
 # Table of content
 [Features](#features)
@@ -55,7 +55,7 @@ export const m4x4_1 = [
 ```
 1. **Equality**
 
-    ```
+    ```typescript
     return Matrix.equal(m3x3_1, m3x3_1);
     // Result: true
     ```
@@ -63,7 +63,7 @@ export const m4x4_1 = [
 2. **Unit matrices**
 
     - Unit 2x2
-    ```
+    ```typescript
     Matrix.getUnit2x2();
     // Result:
     <!-- [
@@ -72,7 +72,7 @@ export const m4x4_1 = [
     ] -->
     ```
     - Unit 3x3
-    ```
+    ```typescript
     Matrix.getUnit3x3();
     // Result:
     <!-- [
@@ -82,7 +82,7 @@ export const m4x4_1 = [
     ] -->
     ```
     - Arbitrary unit matrix
-    ```
+    ```typescript
     Matrix.getUnit(4);
     // Result:
     <!-- [
@@ -96,7 +96,7 @@ export const m4x4_1 = [
 3. **Multiplication**
 
     - To number
-    ```
+    ```typescript
     Matrix.mulToN(m3x3_1, 2);
     // Result:
     <!-- [
@@ -106,7 +106,7 @@ export const m4x4_1 = [
     ] -->
     ```
     - Multiplication
-    ```
+    ```typescript
     Matrix.mul(m3x3_1, m3x3_2);
     // Result:
     <!-- [
@@ -116,7 +116,7 @@ export const m4x4_1 = [
     ] -->
     ```
     - Multiplication 2x2
-    ```
+    ```typescript
     Matrix.mul2x2(m2x2_1, m2x2_2);
     // Result:
     <!-- [
@@ -125,7 +125,7 @@ export const m4x4_1 = [
     ] -->
     ```
     - Multiplication 3x3
-    ```
+    ```typescript
     Matrix.mul3x3(m3x3_1, m3x3_2);
     // Result:
     <!-- [
@@ -135,7 +135,7 @@ export const m4x4_1 = [
     ] -->
     ```
     - Multiplication 3x3 to vector
-    ```
+    ```typescript
     Matrix.mul3x1(m3x3_1, v);
     // Result:
     [[65, 12, 22]]
@@ -143,7 +143,7 @@ export const m4x4_1 = [
 
 4. **Addition**
 
-    ```
+    ```typescript
     Matrix.add(m2x2_1, m2x2_2);
     // Result:
     <!-- [
@@ -154,7 +154,7 @@ export const m4x4_1 = [
 
 5. **Subtraction**
 
-    ```
+    ```typescript
     Matrix.sub(m2x2_1, m2x2_2);
     // Result:
     <!-- [
@@ -165,7 +165,7 @@ export const m4x4_1 = [
 
 6. **Power**
 
-    ```
+    ```typescript
     Matrix.power(m2x2_1, 2)
     // Result:
     <!-- [
@@ -176,7 +176,7 @@ export const m4x4_1 = [
 
 7. **Transposition**
 
-    ```
+    ```typescript
     Matrix.trans(m3x2_1)
     // Result:
     <!-- [
