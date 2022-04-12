@@ -1,6 +1,6 @@
 import { Betest } from 'betest';
 import Matrix from '../lib/matrix.js';
-import { m2x2_1, m2x2_2, m3x3_1, m3x3_2, m3x2_1, v } from './matrices.js';
+import { m2x2_1, m2x2_2, m3x3_1, m3x3_2, m3x2_1, m4x4_1, v } from './matrices.js';
 
 const betest = new Betest();
 
@@ -197,22 +197,24 @@ betest.addGroup({
 
 //#region Determinants
 
-const determ2x2 = function() {
-    const rightAnswer = -16;
-    return Matrix.equal(Matrix.determ2x2(m2x2_1), rightAnswer);
-}
-
-const determ3x3 = function() {
-    const rightAnswer = -67;
-    return Matrix.equal(Matrix.determ3x3(m3x3_1), rightAnswer);
-}
-
 betest.addGroup({
     name: "Determinants",
-    tests: [determ2x2, determ3x3]
+    tests: [
+        function determ2x2() {
+            const rightAnswer = -16;
+            return Matrix.equal(Matrix.determ2x2(m2x2_1), rightAnswer);
+        },
+        function determ3x3() {
+            return Matrix.determ3x3(m3x3_1) == 67;
+        },
+        function determ4x4() {
+            return Matrix.determ4x4(m4x4_1) == 674;
+        }
+    ]
 });
 
 //#endregion
 
-betest.runTest("Determinants", "determ3x3");
+
+betest.runTest("Determinants", "determ4x4");
 //betest.runAll();

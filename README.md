@@ -22,6 +22,8 @@ It's just a class with static methods wich cover almost all operation over matri
 - Subtraction
 - Power
 - Transposition
+- Exclude
+- Determinants
 
 Suppose we have some arbitrary matrices:
 ```
@@ -44,19 +46,21 @@ export const m3x3_2 = [
     [2, 4, -1],
     [4, 3, 9]
 ]
+export const m4x4_1 = [
+    [1, -5, 2, 5],
+    [2, 4, -1, 2],
+    [4, 3, 9, 1],
+    [1, 2, 3, 4]
+]
 ```
-<details>
-    <summary>Equality</summary>
+1. **Equality**
 
     ```
     return Matrix.equal(m3x3_1, m3x3_1);
     // Result: true
     ```
-</details>
 
-
-<details>
-    <summary>Unit matrices</summary>
+2. **Unit matrices**
 
     - Unit 2x2
     ```
@@ -88,11 +92,8 @@ export const m3x3_2 = [
         [0, 0, 0, 1]
     ] -->
     ```
-</details>
 
-
-<details>
-    <summary>Multiplication</summary>
+3. **Multiplication**
 
     - To number
     ```
@@ -139,11 +140,8 @@ export const m3x3_2 = [
     // Result:
     [[65, 12, 22]]
     ```
-</details>
 
-
-<details>
-    <summary>Addition</summary>
+4. **Addition**
 
     ```
     Matrix.add(m2x2_1, m2x2_2);
@@ -153,11 +151,8 @@ export const m3x3_2 = [
         [2, 0]
     ] -->
     ```
-</details>
 
-
-<details>
-    <summary>Subtraction</summary>
+5. **Subtraction**
 
     ```
     Matrix.sub(m2x2_1, m2x2_2);
@@ -167,11 +162,8 @@ export const m3x3_2 = [
         [-2, -8]
     ] -->
     ```
-</details>
 
-
-<details>
-    <summary>Power</summary>
+6. **Power**
 
     ```
     Matrix.power(m2x2_1, 2)
@@ -181,11 +173,8 @@ export const m3x3_2 = [
         [0, 16]
     ] -->
     ```
-</details>
 
-
-<details>
-    <summary>Transposition</summary>
+7. **Transposition**
 
     ```
     Matrix.trans(m3x2_1)
@@ -196,11 +185,19 @@ export const m3x3_2 = [
         [2, -1]
     ] -->
     ```
-</details>
 
+8. **Exclude**
+    ```typescript
+    Matrix.exclude(m4x4_1, 2, 2);
+    // Result: 
+    [
+        [1, 2, 5]
+        [4, 9, 1]
+        [1, 3, 4]
+    ]
+    ```
 
-<details>
-    <summary>Determinants</summary>
+9. **Determinants**
 
     - Determinant 2x2
 
@@ -212,10 +209,14 @@ export const m3x3_2 = [
     - Determinant 3x3
 
     ```typescript
-
     Matrix.determ3x3(m3x3_1)
     // Result: 67
+    ```
     
+    - Determinant 4x4
+
+    ```typescript
+    Matrix.determ4x4(m4x4_1)
+    // Result: 674
     ```
 
-</details>
