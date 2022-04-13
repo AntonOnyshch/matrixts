@@ -1,6 +1,6 @@
 {
   "name": "@antononyshch/matrixts",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "A Library for work with matrices",
   "main": "./lib/matrix.js",
   "type": "module",
@@ -27,6 +27,6 @@
   },
   "homepage": "https://github.com/AntonOnyshch/matrixts/blob/main/README.md",
   "devDependencies": {
-    "betest": "^1.2.9"
+    "betest": "1.2.17"
   }
 }

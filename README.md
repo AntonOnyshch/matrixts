@@ -12,7 +12,7 @@ It's just a class with static methods which cover almost all operations over mat
 ## Features
 
 - Check if matrices are equal
-- Getting *unit* matrices with
+- Getting *identity/unit* matrices with
     - Built in; dimension 2x2, 3x3
     - Any dimension you may want
 - Multiplication
@@ -22,11 +22,12 @@ It's just a class with static methods which cover almost all operations over mat
 - Subtraction
 - Power
 - Transposition
-- Exclude
+- Exclude / Minor
 - Determinants
+- Inverse
 
 Suppose we have some arbitrary matrices:
-```
+```typescript
 export const m2x2_1 = [
     [4, 7],
     [0, -4]
@@ -218,5 +219,15 @@ export const m4x4_1 = [
     ```typescript
     Matrix.determ4x4(m4x4_1)
     // Result: 674
+    ```
+10. Inverse
+    - Inverse 2x2
+    ```typescript
+    Matrix.inverse2x2(m2x2_1)
+    // Result:
+    <!-- [
+       [0.25, 0.4375],
+       [0,	-0.25],
+    ] -->
     ```
 

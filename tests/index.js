@@ -73,6 +73,23 @@ const mulToN = function() {
     return Matrix.equal(m_pliedM, rightAnswer);
 }
 
+const mul2x2ToN = function() {
+    const rightAnswer = [
+        [8, 14],
+        [0, -8]
+    ]
+    return Matrix.equal(Matrix.mul2x2ToN(m2x2_1, 2), rightAnswer);
+}
+
+const mul3x3ToN = function() {
+    const rightAnswer = [
+        [8, 14, 4],
+        [0, -8, 2],
+        [18, -6, 10]
+    ]
+    return Matrix.equal(Matrix.mul3x3ToN(m3x3_1, 2), rightAnswer);
+}
+
 const mul = function() {
     const m_pliedM = Matrix.mul(m3x3_1, m3x3_2);
 
@@ -119,7 +136,7 @@ const mul3x1 = function() {
 
 betest.addGroup({
     name: "Multiplication",
-    tests: [mul2x2, mul3x3, mul3x1, mul, mulToN]
+    tests: [mul2x2, mul3x3, mul3x1, mul, mulToN, mul2x2ToN, mul3x3ToN]
 });
 
 //#endregion
@@ -215,6 +232,23 @@ betest.addGroup({
 
 //#endregion
 
+//#region Inverse
 
-betest.runTest("Determinants", "determ4x4");
+betest.addGroup({
+    name: "Inverse",
+    tests: [
+        function inverse2x2() {
+            const rightAnswer = [
+                [0.25, 0.4375],
+                [0,	-0.25],
+            ]
+            return Matrix.equal(Matrix.inverse2x2(m2x2_1), rightAnswer);
+        }
+    ]
+});
+
+//#endregion
+
+
+betest.runTest("Inverse", "inverse2x2");
 //betest.runAll();

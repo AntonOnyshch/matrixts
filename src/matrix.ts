@@ -84,6 +84,37 @@ export default class Matrix {
         return m_plied;
     }
 
+     /**
+     * Multiply matrix by number
+     * @param {Float32Array[]} m1 A matrix to be multiplied
+     * @param {number} n multiply number
+     * @returns New multiplied matrix
+     */
+     public static mul2x2ToN(m1: Float32Array[], n: number): Float32Array[] {
+        const m_plied = new Array(m1.length);
+
+        m_plied[0] = new Float32Array([m1[0][0] * n, m1[0][1] * n]);
+        m_plied[1] = new Float32Array([m1[1][0] * n, m1[1][1] * n]);
+
+        return m_plied;
+    }
+
+     /**
+     * Multiply matrix by number
+     * @param {Float32Array[]} m1 A matrix to be multiplied
+     * @param {number} n multiply number
+     * @returns New multiplied matrix
+     */
+          public static mul3x3ToN(m1: Float32Array[], n: number): Float32Array[] {
+            const m_plied = new Array(m1.length);
+    
+            m_plied[0] = new Float32Array([m1[0][0] * n, m1[0][1] * n, m1[0][2] * n]);
+            m_plied[1] = new Float32Array([m1[1][0] * n, m1[1][1] * n, m1[1][2] * n]);
+            m_plied[2] = new Float32Array([m1[2][0] * n, m1[2][1] * n, m1[2][2] * n]);
+    
+            return m_plied;
+        }
+
     /**
      * Multiply two matrices as row by columns
      * @param m1 First matrix
@@ -264,7 +295,7 @@ export default class Matrix {
     }
 
     /**
-     * Finds determinant of matrix 2x2
+     * Finds determinant of matrix 2x2 using Leibniz formula
      * @param {Float32Array[]} m1 A matrix
      * @returns Determinant
      */
@@ -273,7 +304,7 @@ export default class Matrix {
     }
 
     /**
-     * Finds determinant of matrix 3x3
+     * Finds determinant of matrix 3x3 using Laplace formula
      * @param {Float32Array[]} m1 A matrix
      * @returns Determinant
      */
@@ -290,18 +321,60 @@ export default class Matrix {
      * @returns Determinant
      */
     public static determ4x4(m1: Float32Array[]): number {
-        const addition1 = Matrix.exclude(m1, 1, 1);
-        const addition2 = Matrix.exclude(m1, 1, 2);
-        const addition3 = Matrix.exclude(m1, 1, 3);
-        const addition4 = Matrix.exclude(m1, 1, 4);
+        const m3x3_1 = Matrix.exclude(m1, 1, 1);
+        const m3x3_2 = Matrix.exclude(m1, 1, 2);
+        const m3x3_3 = Matrix.exclude(m1, 1, 3);
+        const m3x3_4 = Matrix.exclude(m1, 1, 4);
 
-        const result = ((m1[0][0] * (-1)**2) * Matrix.determ3x3(addition1)) +
-        ((m1[0][1] * (-1)**3) *  Matrix.determ3x3(addition2)) +
-        ((m1[0][2] * (-1)**4) * Matrix.determ3x3(addition3)) +
-        ((m1[0][3] * (-1)**5) * Matrix.determ3x3(addition4));
+        const result = ((m1[0][0] * (-1)**2) * Matrix.determ3x3(m3x3_1)) +
+        ((m1[0][1] * (-1)**3) *  Matrix.determ3x3(m3x3_2)) +
+        ((m1[0][2] * (-1)**4) * Matrix.determ3x3(m3x3_3)) +
+        ((m1[0][3] * (-1)**5) * Matrix.determ3x3(m3x3_4));
 
         return result;
     }
 
-    //#endregion 
+    //#endregion
+
+    //#region Algebraic Addition
+
+    public static addition2x2(m1: Float32Array[]): number {
+        return m1[0][0] * m1[1][1] - m1[0][1] * m1[1][0];
+    }
+
+    //#endregion
+
+    //#region Inverse
+
+    /**
+     * Finds inverse matrix
+     * @param {Float32Array[]} m1 A matrix 2x2
+     * @returns Inverse matrix
+     */
+    public static inverse2x2(m1: Float32Array[]): Float32Array[] {
+        const determ = Matrix.determ2x2(m1);
+
+        const m1Copy = [...m1];
+
+        m1Copy[0][1] *= -1;
+        m1Copy[1][0] *= -1;
+
+        const a11 = m1Copy[0][0];
+        m1Copy[0][0] = m1Copy[1][1];
+        m1Copy[1][1] = a11;
+
+        const res = Matrix.mul2x2ToN(m1Copy, 1 / determ);
+        return res;
+    }
+
+    public static inverse3x3(m1: Float32Array[]) {
+        const determinant = Matrix.determ3x3(m1);
+        if(determinant === 0) {
+            throw new Error("Matrix is degenerated");
+        }
+
+
+    }
+
+    //#endregion
 }
