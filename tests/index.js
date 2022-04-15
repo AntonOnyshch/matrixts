@@ -106,22 +106,28 @@ const mul2x2 = function() {
     const m_pliedM = Matrix.mul2x2(m2x2_1, m2x2_2);
 
     const rightAnswer = [
-        [4, 14],
-        [-0, -16]
+        [18, 8],
+        [-8, -16]
     ]
 
     return Matrix.equal(m_pliedM, rightAnswer);
 }
 
 const mul3x3 = function() {
-    const m_pliedM = Matrix.mul3x3(m3x3_1, m3x3_2);
 
-    const rightAnswer = [
-        [4, 14, 8],
-        [-0, -16, 3],
-        [18, 3, 45]
+    const data = [
+        [-0.25, -0.611, 0.22],
+        [0.13, 0.029, -0.059],
+        [0.53, 1.119, -0.23]
     ]
 
+    const rightAnswer = [
+        [26, 14, 19],
+        [-4, -13, 13],
+        [23, -42, 66]
+    ]
+
+    const m_pliedM = Matrix.mul3x3(m3x3_1, data);
     return Matrix.equal(m_pliedM, rightAnswer);
 }
 
@@ -243,12 +249,25 @@ betest.addGroup({
                 [0,	-0.25],
             ]
             return Matrix.equal(Matrix.inverse2x2(m2x2_1), rightAnswer);
+        },
+        function inverse3x3() {
+            const rightAnswer = [
+                [1, 0, 0],
+                [0,	1, 0],
+                [0, 0, 1]
+            ]
+            // const data = [
+            //     [4, -2, 1],
+            //     [1, 6, -2],
+            //     [1, 0, 0]
+            // ]
+            return Matrix.equal(Matrix.mul3x3(Matrix.inverse3x3(m3x3_1), m3x3_1), rightAnswer);
         }
     ]
 });
 
 //#endregion
 
-
-betest.runTest("Inverse", "inverse2x2");
+//betest.runTest("Multiplication", "mul3x3");
+betest.runTest("Inverse", "inverse3x3");
 //betest.runAll();

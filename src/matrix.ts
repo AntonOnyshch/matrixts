@@ -158,8 +158,14 @@ export default class Matrix {
     public static mul2x2(m1: Float32Array[], m2: Float32Array[]): Float32Array[] {
         const m_plied = new Array(m1.length);
         
-        m_plied[0] = new Float32Array([m1[0][0] * m2[0][0], m1[0][1] * m2[1][0]]);
-        m_plied[1] = new Float32Array([m1[1][0] * m2[0][1], m1[1][1] * m2[1][1]]);
+        m_plied[0] = new Float32Array([
+            m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0], 
+            m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1]
+        ]);
+        m_plied[1] = new Float32Array([
+            m1[1][0] * m2[0][0] + m1[1][1] * m2[1][0], 
+            m1[1][0] * m2[0][1] + m1[1][1] * m2[1][1]
+        ]);
 
         return m_plied;
     }
@@ -174,19 +180,19 @@ export default class Matrix {
         const m_plied = new Array(m1.length);
 
         m_plied[0] = new Float32Array([
-            m1[0][0] * m2[0][0],
-            m1[0][1] * m2[1][0],
-            m1[0][2] * m2[2][0]
+            m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0] + m1[0][2] * m2[2][0],
+            m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1] + m1[0][2] * m2[2][1],
+            m1[0][0] * m2[0][2] + m1[0][1] * m2[1][2] + m1[0][2] * m2[2][2]
         ]);
         m_plied[1] = new Float32Array([
-            m1[1][0] * m2[0][1],
-            m1[1][1] * m2[1][1],
-            m1[1][2] * m2[2][1]
+            m1[1][0] * m2[0][0] + m1[1][1] * m2[1][0] + m1[1][2] * m2[2][0],
+            m1[1][0] * m2[0][1] + m1[1][1] * m2[1][1] + m1[1][2] * m2[2][1],
+            m1[1][0] * m2[0][2] + m1[1][1] * m2[1][2] + m1[1][2] * m2[2][2]
         ]);
         m_plied[2] = new Float32Array([
-            m1[2][0] * m2[0][2],
-            m1[2][1] * m2[1][2],
-            m1[2][2] * m2[2][2]
+            m1[2][0] * m2[0][0] + m1[2][1] * m2[1][0] + m1[2][2] * m2[2][0],
+            m1[2][0] * m2[0][1] + m1[2][1] * m2[1][1] + m1[2][2] * m2[2][1],
+            m1[2][0] * m2[0][2] + m1[2][1] * m2[1][2] + m1[2][2] * m2[2][2]
         ]);
 
         return m_plied;
@@ -338,8 +344,26 @@ export default class Matrix {
 
     //#region Algebraic Addition
 
-    public static addition2x2(m1: Float32Array[]): number {
-        return m1[0][0] * m1[1][1] - m1[0][1] * m1[1][0];
+    /**
+     * Performs algebraic addition
+     * @param {Float32Array[]} m1 A matrix
+     * @returns New matrix
+     */
+    public static alg_add3x3(m1: Float32Array[]): Float32Array[] {
+        const alg_matrix = new Array(m1.length);
+        const sign = [
+            [1, -1, 1],
+            [-1, 1, -1],
+            [1, -1, 1],
+        ];
+        for (let i = 0; i < alg_matrix.length; i++) {
+            alg_matrix[i] = new Float32Array(3);
+            alg_matrix[i][0] = Matrix.determ2x2(Matrix.exclude(m1, i+1, 1)) * sign[i][0];
+            alg_matrix[i][1] = Matrix.determ2x2(Matrix.exclude(m1, i+1, 2)) * sign[i][1];
+            alg_matrix[i][2] = Matrix.determ2x2(Matrix.exclude(m1, i+1, 3)) * sign[i][2];
+        }
+
+        return alg_matrix;
     }
 
     //#endregion
@@ -367,13 +391,18 @@ export default class Matrix {
         return res;
     }
 
-    public static inverse3x3(m1: Float32Array[]) {
+    public static inverse3x3(m1: Float32Array[]): Float32Array[] {
         const determinant = Matrix.determ3x3(m1);
         if(determinant === 0) {
             throw new Error("Matrix is degenerated");
         }
 
+        const alg_add = Matrix.alg_add3x3(m1);
 
+        const inverse = Matrix.mul3x3ToN(Matrix.trans(alg_add), 1 / determinant);
+
+        //const test = Matrix.mul3x3(m1, inverse);
+        return inverse;
     }
 
     //#endregion

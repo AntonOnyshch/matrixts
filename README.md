@@ -167,7 +167,7 @@ export const m4x4_1 = [
 6. **Power**
 
     ```typescript
-    Matrix.power(m2x2_1, 2)
+    Matrix.power(m2x2_1, 2);
     // Result:
     <!-- [
         [16, 49],
@@ -178,7 +178,7 @@ export const m4x4_1 = [
 7. **Transposition**
 
     ```typescript
-    Matrix.trans(m3x2_1)
+    Matrix.trans(m3x2_1);
     // Result:
     <!-- [
         [1, 2],
@@ -203,27 +203,27 @@ export const m4x4_1 = [
     - Determinant 2x2
 
     ```typescript
-    Matrix.determ2x2(m2x2_1)
+    Matrix.determ2x2(m2x2_1);
     // Result: -16
     ```
 
     - Determinant 3x3
 
     ```typescript
-    Matrix.determ3x3(m3x3_1)
+    Matrix.determ3x3(m3x3_1);
     // Result: 67
     ```
     
     - Determinant 4x4
 
     ```typescript
-    Matrix.determ4x4(m4x4_1)
+    Matrix.determ4x4(m4x4_1);
     // Result: 674
     ```
 10. Inverse
     - Inverse 2x2
     ```typescript
-    Matrix.inverse2x2(m2x2_1)
+    Matrix.inverse2x2(m2x2_1);
     // Result:
     <!-- [
        [0.25, 0.4375],
