@@ -7,7 +7,7 @@
 It's just a class with static methods which cover almost all operations over matrices you need to work with.
 
 # Table of content
-- [Installation](#installation)
+[Installation](#installation)
 [Features](#features)
 
 ## Installation
@@ -237,8 +237,10 @@ export const m4x4_1 = [
        [0,	-0.25],
     ] -->
     ```
-    ```typescript
+
+
     - Inverse 3x3
+    ```typescript
     Matrix.inverse3x3(m3x3_1);
     // Result:
     <!-- [
