@@ -105,15 +105,15 @@ export default class Matrix {
      * @param {number} n multiply number
      * @returns New multiplied matrix
      */
-          public static mul3x3ToN(m1: Float32Array[], n: number): Float32Array[] {
-            const m_plied = new Array(m1.length);
-    
-            m_plied[0] = new Float32Array([m1[0][0] * n, m1[0][1] * n, m1[0][2] * n]);
-            m_plied[1] = new Float32Array([m1[1][0] * n, m1[1][1] * n, m1[1][2] * n]);
-            m_plied[2] = new Float32Array([m1[2][0] * n, m1[2][1] * n, m1[2][2] * n]);
-    
-            return m_plied;
-        }
+    public static mul3x3ToN(m1: Float32Array[], n: number): Float32Array[] {
+        const m_plied = new Array(m1.length);
+ 
+        m_plied[0] = new Float32Array([m1[0][0] * n, m1[0][1] * n, m1[0][2] * n]);
+        m_plied[1] = new Float32Array([m1[1][0] * n, m1[1][1] * n, m1[1][2] * n]);
+        m_plied[2] = new Float32Array([m1[2][0] * n, m1[2][1] * n, m1[2][2] * n]);
+ 
+        return m_plied;
+    }
 
     /**
      * Multiply two matrices as row by columns
@@ -398,10 +398,9 @@ export default class Matrix {
         }
 
         const alg_add = Matrix.alg_add3x3(m1);
+        const transposed = Matrix.trans(alg_add);
+        const inverse = Matrix.mul3x3ToN(transposed, 1 / determinant);
 
-        const inverse = Matrix.mul3x3ToN(Matrix.trans(alg_add), 1 / determinant);
-
-        //const test = Matrix.mul3x3(m1, inverse);
         return inverse;
     }
 

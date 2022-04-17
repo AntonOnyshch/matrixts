@@ -7,7 +7,14 @@
 It's just a class with static methods which cover almost all operations over matrices you need to work with.
 
 # Table of content
+- [Installation](#installation)
 [Features](#features)
+
+## Installation
+```console
+npm install @antononyshch/matrixts
+```
+
 
 ## Features
 
@@ -61,7 +68,7 @@ export const m4x4_1 = [
     // Result: true
     ```
 
-2. **Unit matrices**
+2. **Unit/Identity matrices**
 
     - Unit 2x2
     ```typescript
@@ -220,7 +227,7 @@ export const m4x4_1 = [
     Matrix.determ4x4(m4x4_1);
     // Result: 674
     ```
-10. Inverse
+10. **Inverse**
     - Inverse 2x2
     ```typescript
     Matrix.inverse2x2(m2x2_1);
@@ -228,6 +235,16 @@ export const m4x4_1 = [
     <!-- [
        [0.25, 0.4375],
        [0,	-0.25],
+    ] -->
+    ```
+    ```typescript
+    - Inverse 3x3
+    Matrix.inverse3x3(m3x3_1);
+    // Result:
+    <!-- [
+        [-0.2537313401699066, -0.611940324306488, 0.2238806039094925],
+        [0.13432836532592773, 0.02985074557363987, -0.05970149114727974],
+        [0.5373134613037109, 1.1194030046463013, -0.23880596458911896]
     ] -->
     ```
 

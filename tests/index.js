@@ -114,20 +114,13 @@ const mul2x2 = function() {
 }
 
 const mul3x3 = function() {
-
-    const data = [
-        [-0.25, -0.611, 0.22],
-        [0.13, 0.029, -0.059],
-        [0.53, 1.119, -0.23]
-    ]
-
     const rightAnswer = [
         [26, 14, 19],
         [-4, -13, 13],
         [23, -42, 66]
     ]
 
-    const m_pliedM = Matrix.mul3x3(m3x3_1, data);
+    const m_pliedM = Matrix.mul3x3(m3x3_1, m3x3_2);
     return Matrix.equal(m_pliedM, rightAnswer);
 }
 
@@ -252,16 +245,11 @@ betest.addGroup({
         },
         function inverse3x3() {
             const rightAnswer = [
-                [1, 0, 0],
-                [0,	1, 0],
-                [0, 0, 1]
+                [-0.2537313401699066, -0.611940324306488, 0.2238806039094925],
+                [0.13432836532592773, 0.02985074557363987, -0.05970149114727974],
+                [0.5373134613037109, 1.1194030046463013, -0.23880596458911896]
             ]
-            // const data = [
-            //     [4, -2, 1],
-            //     [1, 6, -2],
-            //     [1, 0, 0]
-            // ]
-            return Matrix.equal(Matrix.mul3x3(Matrix.inverse3x3(m3x3_1), m3x3_1), rightAnswer);
+            return Matrix.equal(Matrix.inverse3x3(m3x3_1), rightAnswer);
         }
     ]
 });
@@ -271,3 +259,4 @@ betest.addGroup({
 //betest.runTest("Multiplication", "mul3x3");
 betest.runTest("Inverse", "inverse3x3");
 //betest.runAll();
+
