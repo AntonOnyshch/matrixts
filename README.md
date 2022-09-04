@@ -1,5 +1,3 @@
-**Matrixts is under active development. You may encounter significant changes.**
-
 # Matrixts
 
 **Matrixts** is a small library for matrices written in TypeScript with *zero dependencies!*
@@ -7,8 +5,8 @@
 It's just a class with static methods which cover almost all operations over matrices you need to work with.
 
 # Table of content
-[Installation](#installation)
-[Features](#features)
+- [Installation](#installation)
+- [Features](#features)
 
 ## Installation
 ```console
